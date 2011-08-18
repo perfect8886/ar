@@ -1,0 +1,29 @@
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getUserById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] ------------------------> Movie count : 90
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:48 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:49 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] getAdById.
+2011-08-17 20:12:49 [dsp.ar.crawler.impl.ARImpl]-[INFO] ---->Response : [{"id":1000034,"name":"蓝色蝴蝶与花纹","imageUrl":"http://www.niutuku.com/userfiles/image/HD/50/22735.jpgs/200_125.jpg","area":"中国","publishTime":"2011-8-15 21:00","actors":["张颂文","桥本智哉"],"directors":["达斯汀·巴拉德"],"types":["家庭"],"movieSimilarity":0.64,"interest":0.1234567901234576,"result":0.387467764060357},{"id":1000609,"name":"康师傅矿泉水广告","imageUrl":"http://www.niutuku.com/userfiles/image/HD/50/22898.jpgs/200_125.jpg","area":"中国","publishTime":"2011-8-15 21:00","actors":["冯丹滢"],"directors":["NicholasFilippi"],"types":["武侠"],"movieSimilarity":0.64,"interest":0.0,"result":0.3271111111111111},{"id":1000675,"name":"我的E家广告","imageUrl":"http://www.niutuku.com/userfiles/image/HD/50/22870.jpgs/200_125.jpg","area":"中国","publishTime":"2011-8-15 21:00","actors":["金妮弗·古德温"],"directors":["DavidYates"],"types":["剧情"],"movieSimilarity":0.55,"interest":0.0679012345679018,"result":0.31430727023319643}]
+2011-08-17 20:12:55 [dsp.ar.crawler.servlet.MovieServlet]-[INFO] <---------------viewAd----------------->
+2011-08-17 20:12:55 [dsp.ar.crawler.servlet.MovieServlet]-[INFO] User from : 127.0.0.1
+2011-08-17 20:12:55 [dsp.ar.crawler.servlet.MovieServlet]-[INFO] Ad ID : 1000034
+2011-08-17 20:12:55 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] find RecordEntity.
+2011-08-17 20:12:55 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] Create RecordEntity.
+2011-08-17 20:12:55 [dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate]-[INFO] Create UserEntity.

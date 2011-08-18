@@ -1,0 +1,71 @@
+.title {
+	color: #444444;
+	font-size: 16px;
+	font-family: '\9ED1\4F53';
+	margin-bottom: 5px;
+}
+
+.director {
+	color: #000000;
+	font-size: 12px;
+	font-family: 'TimesNR';
+	margin-top: 6px;
+}
+
+.director span {
+	color: #000000;
+	font-size: 15px;
+	font-family: '\9ED1\4F53';
+}
+
+.actor {
+	color: #000000;
+	font-size: 12px;
+	font-family: 'TimesNR';
+	margin-top: 6px;
+}
+
+.actor span {
+	color: #000000;
+	font-size: 15px;
+	font-family: '\9ED1\4F53';
+}
+
+.publish {
+	color: #000000;
+	font-size: 12px;
+	font-family: 'TimesNR';
+	margin-top: 6px;
+}
+
+.publish span {
+	color: #000000;
+	font-size: 15px;
+	font-family: '\9ED1\4F53';
+}
+
+.type {
+	color: #000000;
+	font-size: 12px;
+	font-family: 'TimesNR';
+	margin-top: 6px;
+}
+
+.type span {
+	color: #000000;
+	font-size: 15px;
+	font-family: '\9ED1\4F53';
+}
+
+.area {
+	color: #000000;
+	font-size: 12px;
+	font-family: 'TimesNR';
+	margin-top: 6px;
+}
+
+.area span {
+	color: #000000;
+	font-size: 15px;
+	font-family: '\9ED1\4F53';
+}

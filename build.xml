@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<project name="crawler" default="dbinit" basedir=".">
+	<property environment="env" />
+	<property name="java_home" value="${env.JAVA_HOME}" />
+	<property file="build.properties" />
+	<property file="conf/db/${db.name}/config.properties" />
+	<property name="prefix" value="dsp.ar" />
+
+	<path id="build.classpath">
+		<fileset dir="../lib/crawler">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- init                                                                -->
+	<!-- =================================================================== -->
+	<target name="init">
+		<delete dir="build" />
+		<mkdir dir="build" />
+		<mkdir dir="build/classes" />
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Prepares the build directory                                        -->
+	<!-- =================================================================== -->
+	<target name="prepare" depends="init">
+		<mkdir dir="build" />
+		<mkdir dir="build/classes" />
+	</target>
+
+
+
+	<!-- =================================================================== -->
+	<!-- Compiles the source code                                            -->
+	<!-- =================================================================== -->
+	<target name="compile" depends="prepare">
+		<echo>${basedir}</echo>
+		<javac srcdir="src" destdir="build/classes" debug="true" fork="yes" nowarn="false" deprecation="on" optimize="on" includes="**" encoding="utf-8">
+			<classpath refid="build.classpath" />
+			<include name="**/*.java" />
+			<exclude name="**/test/**/*.java" />
+		</javac>
+		<copy todir="build/classes">
+			<fileset dir="src">
+				<include name="**/*.properties" />
+				<include name="**/*.xml" />
+				<include name="**/*.js" />
+				<include name="**/*.jwc" />
+				<include name="**/*.script" />
+				<include name="**/*.library" />
+			</fileset>
+		</copy>
+		<unzip dest="build/classes">
+			<patternset>
+				<include name="**/*.class" />
+				<include name="**/*.properties" />
+			</patternset>
+			<fileset dir="../lib/crawler">
+				<include name="*.jar" />
+			</fileset>
+		</unzip>
+	</target>
+	<!-- =================================================================== -->
+	<!-- Generate jar                                                        -->
+	<!-- =================================================================== -->
+	<target name="jar" depends="compile">
+		<jar jarfile="E:/${ant.project.name}.jar">
+			<fileset dir="build/classes">
+				<include name="**/*.class" />
+				<include name="**/*.properties" />
+				<exclude name="dsp/osp/**/test/**/**.class" />
+			</fileset>
+			<metainf dir="conf/db/${db.name}">
+				<!--include name="persistence.xml"></include-->
+				<include name="spring-beans.xml">
+				</include>
+			</metainf>
+			<metainf dir="conf">
+				<include name="*.properties">
+				</include>
+			</metainf>
+			<manifest>
+				<attribute name="Main-Class" value="dsp.ar.crawler.server.WebServer" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- Initialize database                                                 -->
+	<!-- =================================================================== -->
+	<target name="dbinit">
+		<echo message="db information" />
+		<echo message="${db.driver}" />
+		<echo message="${db.url}" />
+		<echo message="${db.userid}" />
+		<echo message="${db.password}" />
+
+		<sql driver="${db.driver}" classpathref="build.classpath" url="${db.url}" userid="${db.userid}" password="${db.password}" onerror="continue" encoding="utf-8">
+			<fileset dir="db/${db.name}">
+				<include name="delete*.sql" />
+			</fileset>
+		</sql>
+		<sql driver="${db.driver}" classpathref="build.classpath" url="${db.url}" userid="${db.userid}" password="${db.password}" onerror="continue" encoding="utf-8">
+			<fileset dir="db/${db.name}">
+				<include name="create*.sql" />
+				<include name="insert*.sql" />
+			</fileset>
+		</sql>
+	</target>
+</project>

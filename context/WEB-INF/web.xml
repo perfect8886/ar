@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+	<servlet>
+  		<servlet-name>MovieServlet</servlet-name>
+    	<servlet-class>dsp.ar.crawler.servlet.MovieServlet</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+    	<servlet-name>MovieServlet</servlet-name>
+    	<url-pattern>/movieServlet</url-pattern>
+  	</servlet-mapping>  
+</web-app>
