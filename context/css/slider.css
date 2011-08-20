@@ -1,0 +1,9 @@
+.slider {
+	width: 214px;
+	padding-top: 6px;
+	background-image: url(../img/ticks.gif);
+}
+
+.slider .x-slider-thumb {
+	background-image: url(../img/slider-thumb.png);
+}

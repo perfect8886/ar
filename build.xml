@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="crawler" default="dbinit" basedir=".">
+<project name="ar" default="dbinit" basedir=".">
 	<property environment="env" />
 	<property name="java_home" value="${env.JAVA_HOME}" />
 	<property file="build.properties" />
@@ -7,7 +7,7 @@
 	<property name="prefix" value="dsp.ar" />
 
 	<path id="build.classpath">
-		<fileset dir="../lib/crawler">
+		<fileset dir="lib">
 			<include name="*.jar" />
 		</fileset>
 	</path>
@@ -60,7 +60,7 @@
 				<include name="**/*.class" />
 				<include name="**/*.properties" />
 			</patternset>
-			<fileset dir="../lib/crawler">
+			<fileset dir="lib">
 				<include name="*.jar" />
 			</fileset>
 		</unzip>
@@ -85,7 +85,7 @@
 				</include>
 			</metainf>
 			<manifest>
-				<attribute name="Main-Class" value="dsp.ar.crawler.server.WebServer" />
+				<attribute name="Main-Class" value="dsp.ar.server.WebServer" />
 			</manifest>
 		</jar>
 	</target>

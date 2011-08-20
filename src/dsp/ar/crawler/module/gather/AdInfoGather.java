@@ -8,19 +8,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import dsp.ar.crawler.IAR;
-import dsp.ar.crawler.domain.ActorEntity;
-import dsp.ar.crawler.domain.AdEntity;
-import dsp.ar.crawler.domain.DirectorEntity;
-import dsp.ar.crawler.domain.TypeEntity;
-import dsp.ar.crawler.impl.ARImpl;
+import dsp.ar.Constants;
+import dsp.ar.IAR;
+import dsp.ar.domain.ActorEntity;
+import dsp.ar.domain.AdEntity;
+import dsp.ar.domain.AreaEntity;
+import dsp.ar.domain.DirectorEntity;
+import dsp.ar.domain.StrategyEntity;
+import dsp.ar.domain.TypeEntity;
+import dsp.ar.impl.ARImpl;
 
 public class AdInfoGather {
 	private String path;
 	private IAR ar;
-
-	private static final String TITLE_TAG = "标题";
-	private static final String IMAGE_TAG = "图片";
 
 	public AdInfoGather(String path) {
 		this.path = path;
@@ -54,22 +54,14 @@ public class AdInfoGather {
 				}
 				ad = null;
 				ad = new AdEntity();
-			} else if (line.startsWith(TITLE_TAG)) {
+			} else if (line.startsWith(Constants.Tag.TITLE)) {
 				String title = line.substring(line.indexOf(":") + 1);
-				System.out.println("名称：" + title);
+				// System.out.println("名称：" + title);
 				ad.setName(title);
-			} else if (line.startsWith(IMAGE_TAG)) {
+			} else if (line.startsWith(Constants.Tag.IMAGE)) {
 				String imageUrl = line.substring(line.indexOf(":") + 1);
-				System.out.println("图片：" + imageUrl);
+				// System.out.println("图片：" + imageUrl);
 				ad.setImageUrl(imageUrl);
-
-				// set area
-				String area = "中国";
-				ad.setArea(area);
-
-				// set publish time
-				String publishTime = "2011-8-15 21:00";
-				ad.setPublishTime(publishTime);
 
 				// set director(only one)
 				List<AdEntity> directorAds = new ArrayList<AdEntity>();
@@ -84,7 +76,7 @@ public class AdInfoGather {
 				directorsChosen.add(director);
 				ad.setDirectors(directorsChosen);
 
-				// set actors(0~3)
+				// set actors(0~2)
 				List<ActorEntity> actors = ar.getActors();
 				List<ActorEntity> actorsChosen = new ArrayList<ActorEntity>();
 				int actorSize = actors.size();
@@ -110,31 +102,44 @@ public class AdInfoGather {
 				}
 				ad.setActors(actorsChosen);
 
-				// set type(1~2)
+				// set type(only one)
+				List<AdEntity> typeAds = new ArrayList<AdEntity>();
 				List<TypeEntity> types = ar.getTypes();
 				List<TypeEntity> typesChosen = new ArrayList<TypeEntity>();
 				int typeSize = types.size();
-				int ranTypeNum = (int) (Math.random() + 1);
-				for (int i = 0; i < ranTypeNum; i++) {
-					int randomType = (int) (Math.random() * typeSize);
-					TypeEntity type = types.get(randomType);
-					boolean added = false;
-					List<AdEntity> typeAds = new ArrayList<AdEntity>();
-					for (TypeEntity typeEach : typesChosen) {
-						if (typeEach.getId() == type.getId()) {
-							i--;
-							added = true;
-							break;
-						}
-					}
-					if (!added) {
-						typeAds = ar.getTypeAds(type.getId());
-						typeAds.add(ad);
-						type.setAds(typeAds);
-						typesChosen.add(type);
-					}
-				}
+				int randomType = (int) (Math.random() * typeSize);
+				TypeEntity type = types.get(randomType);
+				typeAds = ar.getTypeAds(type.getId());
+				typeAds.add(ad);
+				type.setAds(typeAds);
+				typesChosen.add(type);
 				ad.setTypes(typesChosen);
+
+				// set area(only one)
+				List<AdEntity> areaAds = new ArrayList<AdEntity>();
+				List<AreaEntity> areas = ar.getAreas();
+				List<AreaEntity> areasChosen = new ArrayList<AreaEntity>();
+				int areaSize = areas.size();
+				int randomArea = (int) (Math.random() * areaSize);
+				AreaEntity area = areas.get(randomArea);
+				areaAds = ar.getAreaAds(area.getId());
+				areaAds.add(ad);
+				area.setAds(areaAds);
+				areasChosen.add(area);
+				ad.setAreas(areasChosen);
+
+				// set strategy
+				StrategyEntity strategy = new StrategyEntity();
+				strategy.setEndDayTime("235959");
+				strategy.setStartDayTime("000000");
+				strategy.setIpPrefix("192.168;127.0");
+				strategy.setPublishEndDate("20120212000000");
+				strategy.setPublishStartDate("20100818194959");
+
+				ad.setStrategy(strategy);
+
+				// set publish time
+				ad.setPublishTime("20110818194530");
 			}
 		}
 	}

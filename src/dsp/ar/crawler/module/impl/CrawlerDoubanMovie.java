@@ -175,7 +175,8 @@ public class CrawlerDoubanMovie extends AbstractCrawler {
 				|| temp.startsWith("片长") || temp.startsWith("官方网站")
 				|| temp.startsWith("又名") || temp.startsWith("IMDb链接")
 				|| temp.startsWith("官方小站") || temp.startsWith("集数")
-				|| temp.startsWith("单集片长")) {
+				|| temp.startsWith("单集片长") || temp.startsWith("图片")
+				|| temp.startsWith("首映日期")) {
 			return true;
 		}
 		return false;

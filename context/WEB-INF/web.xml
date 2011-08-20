@@ -4,11 +4,24 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 	<servlet>
-  		<servlet-name>MovieServlet</servlet-name>
-    	<servlet-class>dsp.ar.crawler.servlet.MovieServlet</servlet-class>
+  		<servlet-name>ARServlet</servlet-name>
+    	<servlet-class>dsp.ar.servlet.ARServlet</servlet-class>
 	</servlet>
  	<servlet-mapping>
-    	<servlet-name>MovieServlet</servlet-name>
-    	<url-pattern>/movieServlet</url-pattern>
-  	</servlet-mapping>  
+    	<servlet-name>ARServlet</servlet-name>
+    	<url-pattern>/arServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>AdServlet</servlet-name>
+    	<servlet-class>dsp.ar.servlet.AdServlet</servlet-class>
+	</servlet>
+ 	<servlet-mapping>
+    	<servlet-name>AdServlet</servlet-name>
+    	<url-pattern>/adServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<welcome-file-list>
+    	<welcome-file>ar.html</welcome-file>
+  	</welcome-file-list>
 </web-app>

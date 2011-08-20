@@ -5,8 +5,7 @@
 http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://127.0.0.1:3306/ar" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/ar" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 		<property name="initialSize" value="5" />
@@ -38,8 +37,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<!-- crawler -->
-				<value>dsp.ar.crawler.domain</value>
+				<!-- ar -->
+				<value>dsp.ar.domain</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -50,7 +49,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	</bean>
 
 	<!-- crawler -->
-	<bean id="crawlerDao" class="dsp.ar.crawler.dao.hibernate.CrawlerDaoHibernate">
+	<bean id="arDao" class="dsp.ar.dao.hibernate.ARDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 </beans>

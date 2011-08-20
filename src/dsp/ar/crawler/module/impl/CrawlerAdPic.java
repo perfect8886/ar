@@ -13,7 +13,6 @@ import org.htmlparser.Node;
 import org.htmlparser.Tag;
 import org.htmlparser.tags.ImageTag;
 import org.htmlparser.tags.LinkTag;
-import org.htmlparser.tags.TitleTag;
 import org.htmlparser.util.NodeIterator;
 import org.htmlparser.util.ParserException;
 
